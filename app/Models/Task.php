@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Task extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+    protected $table = 'tasks';
+
+    public function project()
+    {
+        return $this->belongsTo(Project::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

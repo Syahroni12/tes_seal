@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    protected $table = 'projects';
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
